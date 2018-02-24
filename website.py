@@ -19,8 +19,27 @@ def favicon():
 
 
 @app.route('/', methods=['GET', 'POST'])
+@app.route('/home', methods=['GET', 'POST'])
 def landing_home():
+    return render_template('home.html')
+
+
+@app.route('/cv', methods=['GET', 'POST'])
+@app.route('/projects', methods=['GET', 'POST'])
+@app.route('/art', methods=['GET', 'POST'])
+@app.route('/writing', methods=['GET', 'POST'])
+def landing_cv():
     return render_template('under_construction.html')
+
+
+@app.route('/contact', methods=['GET', 'POST'])
+def landing_contact():
+    return render_template('contact.html')
+
+
+@app.route('/index', methods=['GET', 'POST'])
+def landing_index():
+    return render_template('index.html')
 
 
 if __name__ == '__main__':
