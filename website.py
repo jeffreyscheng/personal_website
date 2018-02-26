@@ -4,12 +4,10 @@ from flask import send_from_directory
 from flask import request, url_for
 from flask import redirect
 from flask_basicauth import BasicAuth
+
 import os
 
 app = Flask(__name__)
-
-
-# app.config.from_object(Config)
 
 
 @app.route('/favicon.ico')
@@ -25,11 +23,8 @@ def landing_home():
 
 
 @app.route('/cv', methods=['GET', 'POST'])
-@app.route('/projects', methods=['GET', 'POST'])
-@app.route('/art', methods=['GET', 'POST'])
-@app.route('/writing', methods=['GET', 'POST'])
 def landing_cv():
-    return render_template('under_construction.html')
+    return render_template('cv.html')
 
 
 @app.route('/contact', methods=['GET', 'POST'])
@@ -40,6 +35,13 @@ def landing_contact():
 @app.route('/index', methods=['GET', 'POST'])
 def landing_index():
     return render_template('index.html')
+
+
+@app.route('/projects', methods=['GET', 'POST'])
+@app.route('/art', methods=['GET', 'POST'])
+@app.route('/writing', methods=['GET', 'POST'])
+def landing_construction():
+    return render_template('under_construction.html')
 
 
 if __name__ == '__main__':
